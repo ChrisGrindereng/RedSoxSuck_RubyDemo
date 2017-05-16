@@ -1,0 +1,16 @@
+<h1> Go Red Sox </h1>
+<br>
+<br>
+<hr>
+<br>
+<br>
+<h3>Teams that are better than the Sox:</h3>
+
+<% @teams.each do |team| %>
+  Team Name: <%= link_to team.name, team_path(team.id) %> <br>
+  City: <%= team.city %> <br>
+<% end %>
+
+<br>
+
+<%= link_to "Create a New Team", new_team_path %>
