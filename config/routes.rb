@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+
+  resources :players
+  resources :cities
+  resources :teams
+
+#how to set http routes one by one
   # get 'teams', to: 'teams#index', as: 'teams'
   #
   # get 'teams/:id', to: 'teams#show', as: 'team'
@@ -11,8 +17,7 @@ Rails.application.routes.draw do
   #
   # patch 'teams/:id', to: 'teams#update'
 
-  resources :teams
+  root 'cities#index'
 
-  root 'teams#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
