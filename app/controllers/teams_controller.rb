@@ -8,7 +8,8 @@ class TeamsController < ApplicationController
   end
 
   def new
-    @team = Team.new
+    @city = City.find(params[:city_id])
+    @team = @city.teams.new
   end
 
   def edit
@@ -16,12 +17,13 @@ class TeamsController < ApplicationController
   end
 
   def create
-    @createteam = Team.create(team_params)
+    @city = City.find(params[:city_id])
+    @team = @city.teams.new(team_params)
 
-    if @createteam.save
-      redirect_to teams_path, notice: "nooiiiiice"
+    if @team.save
+      redirect_to city_path(@city), notice: "nooiiiiice"
     else
-      redirect_to new_team_path, notice: "ya fucked up"
+      redirect_to new_city_team_path(@city.id), notice: "ya fucked up"
     end
   end
 
@@ -47,7 +49,7 @@ class TeamsController < ApplicationController
 
   private
   def team_params
-    params.require(:team).permit(:name, :city)
+    params.require(:team).permit(:name, :football, :baseball)
   end
 
 

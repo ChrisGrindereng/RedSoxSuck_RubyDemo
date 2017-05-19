@@ -1,8 +1,14 @@
 Rails.application.routes.draw do
 
   resources :players
-  resources :cities
-  resources :teams
+  resources :cities do
+    resources :teams
+    resources :players
+  end
+  resources :teams do
+    resources :players
+  end
+
 
 #how to set http routes one by one
   # get 'teams', to: 'teams#index', as: 'teams'

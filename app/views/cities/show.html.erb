@@ -1,2 +1,22 @@
-<h1>Cities#show</h1>
-<p>Find me in app/views/cities/show.html.erb</p>
+<h1><%= @city.name %></h1>
+<hr>
+<h3>Baseball Teams</h3>
+
+<% @baseball_teams.each do |baseball| %>
+  <li><%= link_to baseball.name, team_path(baseball.id)%></li>
+<% end %>
+
+<h3>Football Teams</h3>
+
+<% @football_teams.each do |football| %>
+  <li><%= link_to football.name, team_path(football.id) %></li>
+<% end %>
+<br>
+<hr>
+<%= link_to "Create a team #{@city.name}", new_city_team_path(@city.id) %>
+<%= link_to "Delete", city_path,
+    method: :delete,
+    data: {confirm: "Are you sure you want to delete this city?"} %>
+<br>
+<br>
+<%= link_to "Back to Cities", cities_path %>
