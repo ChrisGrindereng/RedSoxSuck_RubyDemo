@@ -3,13 +3,13 @@
 <h3>Baseball Teams</h3>
 
 <% @baseball_teams.each do |baseball| %>
-  <li><%= link_to baseball.name, team_path(baseball.id)%></li>
+  <li><%= link_to baseball.name, city_team_path(baseball.id)%></li>
 <% end %>
 
 <h3>Football Teams</h3>
 
 <% @football_teams.each do |football| %>
-  <li><%= link_to football.name, team_path(football.id) %></li>
+  <li><%= link_to football.name, city_team_path(football.id) %></li>
 <% end %>
 <br>
 <hr>

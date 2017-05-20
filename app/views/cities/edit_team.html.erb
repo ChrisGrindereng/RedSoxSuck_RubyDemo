@@ -1,0 +1,7 @@
+<h1> FIX YO TEAM! </h1>
+
+<%= render 'teams/form' %>
+
+<%= link_to "Delete", team_path(@team),
+    method: :delete,
+    data: {confirm: "Are you sure?"} %>

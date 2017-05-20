@@ -4,6 +4,7 @@ class TeamsController < ApplicationController
   end
 
   def show
+    @city = City.find(params[:id])
     @team = Team.find(params[:id])
   end
 
@@ -28,10 +29,11 @@ class TeamsController < ApplicationController
   end
 
   def update
-    @team = Team.find(params[:id])
+    @city = City.find(params[:city_id])
+    @team = @city.teams.find(params[:id])
 
     if @team.update(team_params)
-      redirect_to teams_path, "notice: yuuup"
+      redirect_to city_path(@city.id), "notice: yuuup"
     else
       redirect_to edit_team_path(@team.id)
     end
